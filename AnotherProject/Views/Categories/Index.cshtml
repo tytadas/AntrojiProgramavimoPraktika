@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AnotherProject.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+as skaiciaus apie ta erora, raso kad duomenu nera Model kur foreach 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryImage)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead> 
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

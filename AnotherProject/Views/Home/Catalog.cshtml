@@ -1,0 +1,19 @@
+﻿
+@model IEnumerable<AnotherProject.Models.Category>
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+@foreach (var item in Model)
+{
+    <div style="float:left" >
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@Url.Content(item.CategoryImage)" alt="Card image cap" width="200" height="200">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.CategoryType)</h5>  
+
+                <a asp-route-Id="@item.CategoryID" class="btn btn-primary" asp-for="Id" asp-action="Products" asp-controller="Home">Plačiau</a>
+            </div>
+        </div>
+        </div>
+}

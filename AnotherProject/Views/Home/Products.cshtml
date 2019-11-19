@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AnotherProject.Models.Component>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+@foreach (var item in Model)
+{
+
+
+    <div class="card">
+        <h5 class="card-header">@Html.DisplayFor(m => item.ComponentName)</h5>
+        <div class="card-body">
+            <img src="@Url.Content(item.Photo)" alt="..." class="img-thumbnail" width="200" height="200">
+            <p class="card-text">@Html.DisplayFor(m => item.AboutItem)</p>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Norimas kiekis:</label>
+                <label for="formGroupExampleInput">Minimalus kiekis 5000. Kaina 10.00</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Įveskite norima @Html.DisplayFor(m => item.ComponentName) kiekį.">
+                <small id="emailHelp" class="form-text text-muted">Mūsų darbuotojas su jumis susisieks, todėl pakeitimus daryti dėl kiekio ir kainos visada galima.</small>
+            </div>
+            <a class="btn btn-primary" asp-action="CompleteRequest" asp-controller="Home">Rezervuoti</a>
+        </div>
+    </div>
+}
